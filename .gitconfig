@@ -1,0 +1,130 @@
+# Optimal Git Configuration based on Git Core Developers' practices
+# Source: https://blog.gitbutler.com/how-git-core-devs-configure-git/
+
+[user]
+	# Set these values according to your identity
+	name = YOUR_NAME
+	email = YOUR_EMAIL
+
+[core]
+	# Choose your preferred editor (nano, vim, code, etc.)
+	editor = nano
+	
+	# Improve line ending handling across platforms
+	autocrlf = input
+	
+	# Performance improvements
+	fscache = true
+	preloadindex = true
+	
+	# Use a pager for long output
+	pager = less -F -X
+
+[safe]
+	# Avoid ownership issues in repositories
+	directory = *
+
+[color]
+	# Enable colorized output
+	ui = auto
+	status = auto
+	branch = auto
+	diff = auto
+
+[push]
+	# Push only the current branch to the upstream branch
+	default = current
+
+[pull]
+	# Use fast-forward only by default for pulls
+	ff = only
+	# Auto rebase on pull
+	rebase = true
+
+[merge]
+	# Verify signatures when merging
+	verifySignatures = true
+	# Improved conflict style
+	conflictstyle = zdiff3
+
+[rebase]
+	# Check for missing commits during rebase
+	missingCommitsCheck = warn
+	# Auto-stash before rebasing
+	autoStash = true
+
+[diff]
+	# Better diff algorithm for code
+	algorithm = histogram
+	# Show moved lines in a different color
+	colorMoved = default
+	# Show function names in diffs
+	context = 3
+
+[help]
+	# Auto-correct mistyped commands after 1 second
+	autocorrect = 10
+
+[credential]
+	# Store credentials to avoid repeated authentication
+	helper = store
+
+[fetch]
+	# Automatically prune deleted branches on fetch/pull
+	prune = true
+
+[feature]
+	# Better performance for large repositories
+	manyFiles = true
+	# Enable parallel operations
+	parallel = true
+
+[status]
+	# Show the branch and tracking info in short format
+	branch = true
+	short = true
+
+[log]
+	# Use abbreviated commit IDs
+	abbrevCommit = true
+	# Follow file renames in logs
+	follow = true
+
+[alias]
+	# Shorthand commands
+	co = checkout
+	br = branch
+	ci = commit
+	st = status -sb
+	
+	# Useful aliases
+	unstage = reset HEAD --
+	last = log -1 HEAD
+	visual = !gitk
+	
+	# Log display improvements
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	
+	# Show changes
+	df = diff --word-diff
+	
+	# Commit all changes
+	ca = commit -a
+	
+	# Undo last commit but keep changes
+	undo = reset HEAD~1 --soft
+	
+	# Show modified files
+	modified = ls-files -m
+	
+	# Show untracked files
+	untracked = ls-files --others --exclude-standard
+	
+	# Show all branches with last commit
+	branches = branch -av
+	
+	# Amend last commit
+	amend = commit --amend
+	
+	# List all aliases
+	aliases = config --get-regexp ^alias\.

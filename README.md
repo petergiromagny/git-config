@@ -189,7 +189,7 @@ To use the installation script:
    - On Linux/Mac: `./setup-git-config.sh`
    - On Windows: double-click on `setup-git-config.bat` or run it via PowerShell/CMD
 
-Here's the script code to use:
+#### Linux/Mac version (setup-git-config.sh)
 
 ```bash
 #!/bin/bash
@@ -247,7 +247,7 @@ git config --global alias.undo "reset HEAD~1 --soft"
 echo "✅ Optimal Git configuration successfully applied!"
 ```
 
-### Windows version (setup-git-config.bat)
+#### Windows version (setup-git-config.bat)
 
 ```batch
 @echo off

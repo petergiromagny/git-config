@@ -127,4 +127,4 @@
 	amend = commit --amend
 	
 	# List all aliases
-	aliases = config --get-regexp ^alias\.
+	aliases = config --get-regexp ^alias
